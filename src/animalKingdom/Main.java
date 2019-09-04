@@ -83,7 +83,8 @@ public class Main
         System.out.println("*** Lungs and Lay Eggs List ***");
         printAnimals(myList, a -> (a.breath().equals("Lungs")) && (a.reproduce().equals("Eggs")));
         System.out.println();
-        System.out.println("*** Year 1758 List ***");
+        System.out.println("*** Year 1758 Sorted List ***");
+        myList.sort((a1, a2) -> a1.getName().compareToIgnoreCase(a2.getName()));
         printAnimals(myList, a -> a.getYear() == 1758);
         System.out.println();
         System.out.println("*** Mammal List ***");
