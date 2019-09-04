@@ -1,8 +1,8 @@
 package animalKingdom;
 
-public class Mammals extends Animals
+public class Mammal extends Animal
 {
-    public Mammals(String name, int year)
+    public Mammal(String name, int year)
     {
         super(name, year);
     }

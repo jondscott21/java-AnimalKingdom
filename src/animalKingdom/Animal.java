@@ -1,6 +1,6 @@
 package animalKingdom;
 
-public abstract class Animals
+public abstract class Animal
 {
     private static int maxId = 0;
     private int id;
