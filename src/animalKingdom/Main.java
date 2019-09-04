@@ -1,9 +1,20 @@
 package animalKingdom;
 
-import java.utils.*;
+import java.util.*;
 
 public class Main 
 {
+    public static void printAnimals(ArrayList<Animal> animal, CheckAnimal tester)
+    {
+        for (Animal v : animal)
+        {
+            if (tester.test(v))
+            {
+                System.out.println(v.getName() + " " + v.getYear() + " " + v.breath() + " " + v.reproduce());
+            }
+        }
+    }
+
     public static void main(String[] args) {
         // Mammals:
         Mammal panda = new Mammal("Panda", 1869);
@@ -44,5 +55,39 @@ public class Main
         myList.add(salmon);
         myList.add(catfish);
         myList.add(perch);
+
+        // System.out.println("*** toString ***");
+        // System.out.println(myList.toString());
+        // System.out.println();
+        System.out.println("*** Normal List ***");
+        myList.forEach((v) -> System.out.println(v));
+        System.out.println();
+        System.out.println("*** Descending Year List ***");
+        myList.sort((v1, v2) -> v2.getYear() - v1.getYear());
+        myList.forEach((v) -> System.out.println(v));
+        System.out.println();
+        System.out.println("*** Alphbetical List ***");
+        myList.sort((v1, v2) -> v1.getName().compareToIgnoreCase(v2.getName()));
+        myList.forEach((v) -> System.out.println(v));
+        System.out.println();
+        System.out.println("*** Movement List ***");
+        myList.sort((v1, v2) -> v1.move().compareToIgnoreCase(v2.move()));
+        myList.forEach((v) -> System.out.println(v + " Movement: " + v.move()));
+        System.out.println();
+        System.out.println("*** Lungs only List ***");
+        printAnimals(myList, v -> v.breath().equals("Lungs"));
+        System.out.println();
+        System.out.println("*** Lungs and Year 1758 List ***");
+        printAnimals(myList, v -> (v.breath().equals("Lungs")) && (v.getYear() == 1758));
+        System.out.println();
+        System.out.println("*** Lungs and Lay Eggs List ***");
+        printAnimals(myList, v -> (v.breath().equals("Lungs")) && (v.reproduce().equals("Eggs")));
+        System.out.println();
+        System.out.println("*** Year 1758 List ***");
+        printAnimals(myList, v -> v.getYear() == 1758);
+        System.out.println();
+        System.out.println("*** Mammal List ***");
+        printAnimals(myList, v -> v instanceof Mammal);
+
     }
 }

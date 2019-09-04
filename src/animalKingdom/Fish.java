@@ -23,4 +23,11 @@ public class Fish extends Animal
     {
         return "Eggs";
     }
+    @Override
+    public String toString()
+    {
+        return "\nFish: " +
+        "Name: " + name + '\'' +
+        ", Year Named: " + year;
+    }
 }
